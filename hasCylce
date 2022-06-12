@@ -1,0 +1,19 @@
+class Solution:
+    def hasCycle(self, head: Optional[ListNode]) -> bool:
+        #empty list
+        if head is None:
+            return False
+        slow = head
+        fast = head.next
+        while slow != fast:
+            #case of list of two
+            if fast is None or fast.next is None:
+                return False
+            slow = slow.next
+            fast = fast.next.next
+        return True
+    
+    #time o(n+k) k is cylce length
+    #space o(1)
+        
+        
