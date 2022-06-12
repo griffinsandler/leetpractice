@@ -1,0 +1,20 @@
+
+class Solution:
+    def isBalanced(self, root: Optional[TreeNode]) -> bool:
+        if not root:
+            return True
+        
+        def height(root):
+            if root is None:
+                return -1
+            return 1 +max(height(root.left), height(root.right))
+                
+        
+        if abs(height(root.left) -height(root.right)) < 2:
+            if self.isBalanced(root.right) and self.isBalanced(root.left):
+                return True
+        else:
+            return False
+        
+        #time O(nlog n)
+        #space O(n)
